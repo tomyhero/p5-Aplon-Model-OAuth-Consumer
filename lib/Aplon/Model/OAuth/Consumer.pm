@@ -98,7 +98,7 @@ Aplon::Model::OAuth::Consumer - help you to create OAuth consumer logic.
 
 =head1 DESCRIPTION
 
-OAuth.
+OAuth. SEE  L<Aplon::Model::OAuth::Twitter> or L<Aplon::Model::OAuth::Hatena> document for how to use.
 
 =head1 AUTHOR
 
