@@ -81,7 +81,7 @@ sub do_complate {
 
 sub request_token_key {
     my $self = shift;
-    return ref $self . '::request_token';
+    return ref ($self) . '::request_token';
 }
 
 
