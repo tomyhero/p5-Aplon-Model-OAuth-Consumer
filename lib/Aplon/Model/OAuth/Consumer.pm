@@ -44,7 +44,7 @@ sub oauth {
         = $consumer->get_request_token(%$args) or
             $self->abort_with({ 
                 code => 'OAUTH_FAILED', 
-                custom_invalid => ['get_request_token_faild' ], 
+                custom_invalid => 'get_request_token_faild', 
                 message => $consumer->errstr }
             );
     
@@ -64,7 +64,7 @@ sub callback {
             verifier => $args->{oauth_verifier} || '') or 
                 $self->abort_with({ 
                     code => 'OAUTH_FAILED', 
-                    custom_invalid => ['get_access_token_faild' ], 
+                    custom_invalid => 'get_access_token_faild', 
                     message => $consumer->errstr }
                 );
 
