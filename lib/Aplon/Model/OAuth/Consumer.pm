@@ -42,11 +42,7 @@ sub oauth {
 
     my $request_token 
         = $consumer->get_request_token(%$args) or
-            $self->abort_with({ 
-                code => 'OAUTH_FAILED', 
-                custom_invalid => 'get_request_token_faild', 
-                message => $consumer->errstr }
-            );
+            $self->abort_with('get_request_token_faild', { code => 'OAUTH_FAILED' } );
     
     $self->session->set($self->request_token_key => $request_token);     
 
@@ -62,11 +58,7 @@ sub callback {
         = $consumer->get_access_token(
             token    => $self->session->get($self->request_token_key) || '',
             verifier => $args->{oauth_verifier} || '') or 
-                $self->abort_with({ 
-                    code => 'OAUTH_FAILED', 
-                    custom_invalid => 'get_access_token_faild', 
-                    message => $consumer->errstr }
-                );
+                $self->abort_with('get_access_token_faild', { code => 'OAUTH_FAILED' });
 
     $self->session->remove($self->request_token_key);
 
